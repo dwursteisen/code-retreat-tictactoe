@@ -108,4 +108,25 @@ public class TicTacToeTest {
         ticTacToe.joue(0, 0b010_000_000);
         assertThat(ticTacToe.grilles[0]).isEqualTo(0b111_000_000);
     }
+
+    @Test
+    public void partie() {
+        ticTacToe.joue(0b100_000_000);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b000_100_000);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b010_000_000);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b001_000_000);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b000_010_100);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b000_001_000);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b000_000_100);
+        assertThat(ticTacToe.gagnant()).isEqualTo(-1);
+        ticTacToe.joue(0b000_000_001);
+        assertThat(ticTacToe.gagnant()).isEqualTo(1);
+
+    }
 }

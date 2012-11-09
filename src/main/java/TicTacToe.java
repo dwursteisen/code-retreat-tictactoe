@@ -61,4 +61,8 @@ public class TicTacToe {
         return correspontAuMasque(grille, MASQUE_DIAGONALE1) ||
                 correspontAuMasque(grille, MASQUE_DIAGONALE2);
     }
+
+    boolean grilleGagnante(final int grille) {
+        return ligneGagnante(grille) || colonneGagnante(grille) || diagonaleGagnante(grille);
+    }
 }

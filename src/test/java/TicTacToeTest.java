@@ -77,5 +77,20 @@ public class TicTacToeTest {
     public void diagonales_pas_gagnantes() {
         assertThat(ticTacToe.diagonaleGagnante(0b100_000_001)).isFalse();
         assertThat(ticTacToe.diagonaleGagnante(0b001_010_000)).isFalse();
+
+    }
+
+    @Test
+    public void grille_gagnante() {
+        assertThat(ticTacToe.grilleGagnante(0b100_111_001)).isTrue();
+        assertThat(ticTacToe.grilleGagnante(0b100_101_101)).isTrue();
+        assertThat(ticTacToe.grilleGagnante(0b100_110_011)).isTrue();
+    }
+
+    @Test
+    public void grille_pas_gagnante() {
+        assertThat(ticTacToe.grilleGagnante(0b100_001_001)).isFalse();
+        assertThat(ticTacToe.grilleGagnante(0b100_100_001)).isFalse();
+        assertThat(ticTacToe.grilleGagnante(0b100_110_000)).isFalse();
     }
 }

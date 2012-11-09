@@ -93,4 +93,9 @@ public class TicTacToeTest {
         assertThat(ticTacToe.grilleGagnante(0b100_100_001)).isFalse();
         assertThat(ticTacToe.grilleGagnante(0b100_110_000)).isFalse();
     }
+
+    @Test
+    public void partie_complete() {
+        assertThat(ticTacToe.partieComplete(0b101_001_110, 0b010_110_001)).isTrue();
+    }
 }

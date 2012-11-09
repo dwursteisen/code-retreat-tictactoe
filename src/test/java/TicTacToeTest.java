@@ -66,4 +66,16 @@ public class TicTacToeTest {
         assertThat(ticTacToe.colonneGagnante(0b010_110_000)).isFalse();
         assertThat(ticTacToe.colonneGagnante(0b000_000_011)).isFalse();
     }
+
+    @Test
+    public void diagonales_gagnantes() {
+        assertThat(ticTacToe.diagonaleGagnante(0b100_010_001)).isTrue();
+        assertThat(ticTacToe.diagonaleGagnante(0b001_010_100)).isTrue();
+    }
+
+    @Test
+    public void diagonales_pas_gagnantes() {
+        assertThat(ticTacToe.diagonaleGagnante(0b100_000_001)).isFalse();
+        assertThat(ticTacToe.diagonaleGagnante(0b001_010_000)).isFalse();
+    }
 }

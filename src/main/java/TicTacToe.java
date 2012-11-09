@@ -84,10 +84,12 @@ public class TicTacToe {
         joue(joueurCourant, coup);
         if (grilleGagnante(grilles[joueurCourant])) {
             gagnant = joueurCourant;
+            return;
         }
         int joueurSuivant = joueurSuivant();
         if (partieComplete(grilles[joueurCourant], grilles[joueurSuivant])) {
             gagnant = -2;
+            return;
         }
         joueurCourant = joueurSuivant;
     }

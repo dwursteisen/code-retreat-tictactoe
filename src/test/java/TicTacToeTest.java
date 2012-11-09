@@ -127,6 +127,8 @@ public class TicTacToeTest {
         assertThat(ticTacToe.gagnant()).isEqualTo(-1);
         ticTacToe.joue(0b000_000_001);
         assertThat(ticTacToe.gagnant()).isEqualTo(1);
+        ticTacToe.joue(0b000_000_001);
+        assertThat(ticTacToe.gagnant()).isEqualTo(1);
 
     }
 }

@@ -98,4 +98,14 @@ public class TicTacToeTest {
     public void partie_complete() {
         assertThat(ticTacToe.partieComplete(0b101_001_110, 0b010_110_001)).isTrue();
     }
+
+    @Test
+    public void joue() {
+        ticTacToe.joue(0, 0b100_000_000);
+        assertThat(ticTacToe.grilles[0]).isEqualTo(0b100_000_000);
+        ticTacToe.joue(0, 0b001_000_000);
+        assertThat(ticTacToe.grilles[0]).isEqualTo(0b101_000_000);
+        ticTacToe.joue(0, 0b010_000_000);
+        assertThat(ticTacToe.grilles[0]).isEqualTo(0b111_000_000);
+    }
 }

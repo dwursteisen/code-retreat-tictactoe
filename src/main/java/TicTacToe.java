@@ -38,7 +38,9 @@ public class TicTacToe {
 
     private static final int MASQUE_DIAGONALE1 = 0b100_010_001;
     private static final int MASQUE_DIAGONALE2 = 0b001_010_100;
-    public static final int MASQUE_GRILLE_COMPLETE = 0b111_111_111;
+    private static final int MASQUE_GRILLE_COMPLETE = 0b111_111_111;
+
+    final int[] grilles = {0b000_000_000, 0b000_000_000};
 
     private boolean correspontAuMasque(final int grid, final int masque) {
         return (grid & masque) == masque;
@@ -69,5 +71,9 @@ public class TicTacToe {
 
     boolean partieComplete(final int grilleJoueur1, final int grilleJoueur2) {
         return (grilleJoueur1 | grilleJoueur2) == MASQUE_GRILLE_COMPLETE;
+    }
+
+    public void joue(final int joueur, final int coup) {
+        grilles[joueur] = grilles[joueur] | coup;
     }
 }

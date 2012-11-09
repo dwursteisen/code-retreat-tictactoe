@@ -52,4 +52,18 @@ public class TicTacToeTest {
         assertThat(ticTacToe.ligneGagnante(0b010_110_000)).isFalse();
         assertThat(ticTacToe.ligneGagnante(0b000_000_011)).isFalse();
     }
+
+    @Test
+    public void colones_gagnantes() {
+        assertThat(ticTacToe.colonneGagnante(0b100_100_100)).isTrue();
+        assertThat(ticTacToe.colonneGagnante(0b010_010_010)).isTrue();
+        assertThat(ticTacToe.colonneGagnante(0b001_001_001)).isTrue();
+    }
+
+    @Test
+    public void colonnes_pas_gagnantes() {
+        assertThat(ticTacToe.colonneGagnante(0b101_000_000)).isFalse();
+        assertThat(ticTacToe.colonneGagnante(0b010_110_000)).isFalse();
+        assertThat(ticTacToe.colonneGagnante(0b000_000_011)).isFalse();
+    }
 }

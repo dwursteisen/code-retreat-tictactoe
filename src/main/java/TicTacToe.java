@@ -28,15 +28,19 @@
 public class TicTacToe {
 
 
-    public static final int MASQUE_LIGNE1 = 0b111_000_000;
-    public static final int MASQUE_LIGNE2 = 0b000_111_000;
-    public static final int MASQUE_LIGNE3 = 0b000_000_111;
+    private static final int MASQUE_LIGNE1 = 0b111_000_000;
+    private static final int MASQUE_LIGNE2 = 0b000_111_000;
+    private static final int MASQUE_LIGNE3 = 0b000_000_111;
 
-    boolean ligneGagnante(int grid) {
+    private static final int MASQUE_COLONNE1 = 0b100_100_100;
+    private static final int MASQUE_COLONNE2 = 0b010_010_010;
+    private static final int MASQUE_COLONNE3 = 0b001_001_001;
 
-        return correspontAuMasque(grid, MASQUE_LIGNE1) ||
-                correspontAuMasque(grid, MASQUE_LIGNE2) ||
-                correspontAuMasque(grid, MASQUE_LIGNE3);
+    boolean ligneGagnante(int grille) {
+
+        return correspontAuMasque(grille, MASQUE_LIGNE1) ||
+                correspontAuMasque(grille, MASQUE_LIGNE2) ||
+                correspontAuMasque(grille, MASQUE_LIGNE3);
     }
 
     private boolean correspontAuMasque(final int grid, final int masque) {
@@ -44,4 +48,9 @@ public class TicTacToe {
     }
 
 
+    boolean colonneGagnante(final int grille) {
+        return correspontAuMasque(grille, MASQUE_COLONNE1) ||
+                correspontAuMasque(grille, MASQUE_COLONNE2) ||
+                correspontAuMasque(grille, MASQUE_COLONNE3);
+    }
 }
